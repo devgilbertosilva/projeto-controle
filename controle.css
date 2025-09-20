@@ -1,4 +1,4 @@
-/* ===== Estilo do corpo da página ===== */
+ /* ===== Estilo do corpo da página ===== */
 body {
   font-family: Arial, sans-serif;
   background-color: #f0f2f5;
@@ -13,11 +13,13 @@ body {
 h1 {
   color: #1e3a8a;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 h2 {
   margin-top: 30px;
   color: #111;
+  text-align: center;
 }
 
 /* ===== Controle de inputs e botões ===== */
@@ -25,8 +27,11 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   margin-bottom: 20px;
   gap: 10px;
+  width: 100%;
+  max-width: 600px;
 }
 
 select, input[type="number"] {
@@ -34,6 +39,7 @@ select, input[type="number"] {
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 16px;
+  min-width: 120px;
 }
 
 button {
@@ -54,8 +60,11 @@ button:hover {
 /* ===== Tabela de estoque ===== */
 table {
   border-collapse: collapse;
-  width: 60%;
+  width: 80%;
+  max-width: 600px;
   margin-top: 10px;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 
 table th, table td {
@@ -72,7 +81,8 @@ table th {
 /* ===== Caixa de mensagens ===== */
 #mensagens {
   margin-top: 20px;
-  width: 60%;
+  width: 80%;
+  max-width: 600px;
   min-height: 50px;
   padding: 10px;
   border: 1px solid #ccc;
@@ -80,7 +90,6 @@ table th {
   background-color: #fff;
 }
 
-/* ===== Mensagens individuais ===== */
 #mensagens p {
   margin: 5px 0;
   font-size: 15px;
@@ -97,3 +106,51 @@ table th {
   font-weight: bold;
 }
 
+/* ===== Responsividade ===== */
+@media screen and (max-width: 768px) {
+  .controle {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  select, input[type="number"], button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  #mensagens {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  select, input[type="number"], button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  table th, table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  #mensagens p {
+    font-size: 13px;
+  }
+}
